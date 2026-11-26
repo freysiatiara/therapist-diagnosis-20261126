@@ -37,6 +37,10 @@ def resolve_output_path():
 
 
 def main():
+    if not LINE.strip():
+        raise ValueError("entry line must not be empty")
+    if len(LINE) > 200:
+        raise ValueError("entry line exceeds 200 characters")
     path = resolve_output_path()
     directory = os.path.dirname(path)
     if directory:
